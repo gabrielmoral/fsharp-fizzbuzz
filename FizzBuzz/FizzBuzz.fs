@@ -3,12 +3,17 @@ module FizzBuzz
 open NUnit.Framework
 open FsUnit
 
+
+let (|DivisibleByThree|_|) x = if x % 3 = 0 then Some DivisibleByThree else None
+let (|DivisibleByFive|_|) x = if x % 5 = 0 then Some DivisibleByFive else None
+
+
 let FizzBuzzer x = 
     match x with
-    | x when x % 3 = 0 && x % 5 = 0 -> "FizzBuzz"
-    | x when x % 3 = 0 -> "Fizz"
-    | x when x % 5 = 0 -> "Buzz"
-    | x -> string x
+    | DivisibleByThree & DivisibleByFive -> "FizzBuzz"
+    | DivisibleByThree -> "Fizz"
+    | DivisibleByFive -> "Buzz"
+    | _ -> string x
 
 let FizzBuzz x = 
     { 1 .. x }
