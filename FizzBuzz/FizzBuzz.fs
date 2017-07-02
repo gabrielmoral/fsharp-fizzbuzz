@@ -7,10 +7,14 @@ open FsUnit
 let (|DivisibleByThree|_|) x = if x % 3 = 0 then Some DivisibleByThree else None
 let (|DivisibleByFive|_|) x = if x % 5 = 0 then Some DivisibleByFive else None
 
+let (|DivisibleByFifteen|_|) x = 
+    match x with
+    | DivisibleByFive & DivisibleByThree -> Some DivisibleByFifteen 
+    | _ -> None
 
 let FizzBuzzer x = 
     match x with
-    | DivisibleByThree & DivisibleByFive -> "FizzBuzz"
+    | DivisibleByFifteen -> "FizzBuzz"
     | DivisibleByThree -> "Fizz"
     | DivisibleByFive -> "Buzz"
     | _ -> string x
