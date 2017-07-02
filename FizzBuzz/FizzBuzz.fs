@@ -3,18 +3,15 @@ module FizzBuzz
 open NUnit.Framework
 open FsUnit
 
-let (|DivisibleByThree|_|) x = 
-    match x with 
+let (|DivisibleByThree|_|)  = function
     | x when x % 3 = 0 -> Some DivisibleByThree
     | _ -> None
 
-let (|DivisibleByFive|_|) x =  
-    match x with 
+let (|DivisibleByFive|_|) = function
     | x when x % 5 = 0 -> Some DivisibleByFive
     | _ -> None
 
-let (|DivisibleByFifteen|_|) x = 
-    match x with
+let (|DivisibleByFifteen|_|) = function
     | DivisibleByFive & DivisibleByThree -> Some DivisibleByFifteen 
     | _ -> None
 
