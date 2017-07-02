@@ -5,9 +5,9 @@ open FsUnit
 
 let FizzBuzzer x = 
     match x with
-    | x when (x % 3) = 0 && (x % 5) = 0 -> "FizzBuzz"
-    | x when (x % 3) = 0 -> "Fizz"
-    | x when (x % 5) = 0 -> "Buzz"
+    | x when x % 3 = 0 && x % 5 = 0 -> "FizzBuzz"
+    | x when x % 3 = 0 -> "Fizz"
+    | x when x % 5 = 0 -> "Buzz"
     | x -> string x
 
 let FizzBuzz x = 
