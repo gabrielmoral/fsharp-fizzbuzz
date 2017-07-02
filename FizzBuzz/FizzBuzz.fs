@@ -3,9 +3,15 @@ module FizzBuzz
 open NUnit.Framework
 open FsUnit
 
+let (|DivisibleByThree|_|) x = 
+    match x with 
+    | x when x % 3 = 0 -> Some DivisibleByThree
+    | _ -> None
 
-let (|DivisibleByThree|_|) x = if x % 3 = 0 then Some DivisibleByThree else None
-let (|DivisibleByFive|_|) x = if x % 5 = 0 then Some DivisibleByFive else None
+let (|DivisibleByFive|_|) x =  
+    match x with 
+    | x when x % 5 = 0 -> Some DivisibleByFive
+    | _ -> None
 
 let (|DivisibleByFifteen|_|) x = 
     match x with
